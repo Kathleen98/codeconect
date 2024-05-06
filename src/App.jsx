@@ -4,6 +4,7 @@ import BarraDePesquisa from './componentes/BarraDePesquisa'
 import Card from './componentes/Card';
 import Filtro from './componentes/Filtro';
 import Sidebar from './componentes/Sidebar'
+import Ordenacao from './componentes/Ordenacao';
 
 function App() {
   const [dados, setDados] = useState([]);
@@ -13,8 +14,6 @@ function App() {
       .then(dados => setDados(dados));
   }, []);
 
-  console.table(dados);
-
 
   return (
     <div className="container">
@@ -22,7 +21,23 @@ function App() {
       <div>
         <BarraDePesquisa />
         <Filtro />
-        <Card />
+        <Ordenacao />
+        <ul className='lista-cards'>
+          {dados ? dados.map((item, index) =>(
+            <li key={index}>
+              <Card 
+                id={item.id}
+                imagemUrl={item.imagem_capa}
+                titulo={item.titulo}
+                resumo={item.resumo}
+                linhasDeCodigo={item.linhas_de_codigo}
+                compartilhamento={item.compartilhamentos}
+                comentarios={item.comentarios}
+                usuario={item.usuario}
+              />
+            </li>
+          )) : null}
+        </ul>
       </div>
     </div>
   )

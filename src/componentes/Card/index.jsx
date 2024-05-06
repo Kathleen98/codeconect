@@ -1,42 +1,40 @@
-import Capa from './assets/capa.png';
 import Code from './assets/code.svg';
 import Chat from './assets/chat.svg';
 import Share from './assets/share.svg';
-import Icone from './assets/icone.png';
 import './styles.css';
 
-function Card(){
+function Card({id, imagemUrl, titulo, resumo, linhasDeCodigo, compartilhamentos, comentarios, usuario}){
     return(
         <article className='card'>
             <div className="card__imagem">
-                <img src={Capa} alt="Imagem do post" />
+                <img src={imagemUrl} alt="Imagem do post" />
             </div>
             <div className="card__conteudo">
                 <div className="conteudo__texto">
                     <h3>
-                        Titulo do Post
+                        {titulo}
                     </h3>
-                    <p>Resumo do post</p>
+                    <p>{resumo}</p>
                 </div>
                 <div className="conteudo__rodape">
                     <ul>
                         <li>
                             <img src={Code} alt="códigos" />
-                            100
+                            {linhasDeCodigo}
                         </li>
                         <li>
                             <img src={Share} alt="Compartilhamentos" />
-                            12
+                            {compartilhamentos}
                         </li>
                         <li>
                             <img src={Chat} alt="Comentários" />
-                            10
+                            {comentarios}
                         </li>
                     </ul>
 
                     <div className="rodape__usuario">
-                        <img src={Icone} alt="Foto do usuário" />
-                        @kath
+                        <img src={usuario.imagem} alt="Foto do usuário" />
+                        {usuario.nome}
                     </div>
                 </div>
             </div>

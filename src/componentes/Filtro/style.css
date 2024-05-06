@@ -29,3 +29,8 @@
     border: none;
     background: transparent;
 }
+
+.container-filtro button:hover{
+    cursor: pointer;
+    color: var(--verde-destaque);
+}
