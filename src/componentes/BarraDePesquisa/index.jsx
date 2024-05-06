@@ -8,7 +8,7 @@ function BarraDePesquisa(){
         <input 
             // No value estou declarando que o campo vai iniciar com o valor do termoPesquisa, no caso, vai inicar vazio
             value={termoPesquisa}
-            // Usando a função onChange para 
+            // Vai pegar o evento de digitação e com a função setTermoPesquisa vai atribuir o valor
             onChange={(evento) => setTermoPesquisa(evento.target.value)}
             className='barra-pesquisa'
             type="search"
